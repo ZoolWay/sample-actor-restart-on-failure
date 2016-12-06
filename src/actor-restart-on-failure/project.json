@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "buildOptions": {
     "emitEntryPoint": true
@@ -7,8 +7,9 @@
   "dependencies": {
     "Akka": "1.1.1",
     "Akka.Logger.log4net": "1.1.1",
-    "Akka.Serialization.Wire": "1.1.1.28-beta",
-    "Wire": "0.7.1"
+    "Akka.Serialization.Wire": "1.1.1.27-beta",
+    "log4net": "2.0.5",
+    "Wire": "0.0.6"
   },
 
   "frameworks": {

@@ -99,11 +99,27 @@ namespace actor_restart_on_failure
 
         public static void Main(string[] args)
         {
+            global::log4net.Config.BasicConfigurator.Configure();
+
             Console.WriteLine("Creating config");
             ConfigObject config = new ConfigObject() { ConfigText = "lore ipsum", ConfigValue = 42 };
 
             Console.WriteLine("Creating actorsystem");
-            var system = ActorSystem.Create("TestSystem");
+            var akkaConfig = Akka.Configuration.ConfigurationFactory.ParseString(@"
+            akka {
+                actor {
+                    serializers {
+                        wire = ""Akka.Serialization.WireSerializer, Akka.Serialization.Wire""
+                    }
+                    serialization-bindings {
+                        ""System.Object"" = wire
+                    }
+                }
+
+                loglevel = DEBUG
+            }
+            ");
+            var system = ActorSystem.Create("TestSystem", akkaConfig);
 
             Console.WriteLine("Creating parent actor");
             Props propsParent = Props.Create(() => new ParentActor(config));
