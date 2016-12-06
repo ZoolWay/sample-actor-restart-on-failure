@@ -5,11 +5,11 @@
   },
 
   "dependencies": {
-    "Akka": "1.1.1",
+    "Akka": "1.1.2",
     "Akka.Logger.log4net": "1.1.1",
-    "Akka.Serialization.Wire": "1.1.1.27-beta",
+    "Akka.Serialization.Wire": "1.1.2.30-beta",
     "log4net": "2.0.5",
-    "Wire": "0.0.6"
+    "Wire": "0.8.1"
   },
 
   "frameworks": {
